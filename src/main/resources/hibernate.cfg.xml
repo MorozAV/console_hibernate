@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:oracle:thin:@oracle-test.tmb.nf:1521:hope</property>
+        <property name="connection.username">TEST_HIBERNATE</property>
+        <property name="connection.password">test_hibernate</property>
+        <property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <!-- Select our SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.Oracle12cDialect</property>
+        <!-- Echo the SQL to stdout -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <!-- dbcp connection pool configuration -->
+        <property name="connection.pool_size">1</property>
+        <property name="current_session_context_class">thread</property>
+        <!-- DB schema will be updated if needed -->
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">create-drop</property>
+
+
+        <mapping class="org.alexfess.learning.model.Message"/>
+    </session-factory>
+</hibernate-configuration>
